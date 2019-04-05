@@ -8,15 +8,13 @@
 <%@ page isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
-    <html>
-        <head>
-            <title>Dashboard</title>
-        </head>
-        <body>
-            <c:forEach var="aFruit" items="${projects}">
-
-                 <p> ${aFruit} </p>
-            </c>
-        </body>
-     </html>
+<html>
+    <head>
+        <title>dash</title>
+    </head>
+    <body>
+        <c:forEach var="project" items="${projects}">
+            <p>${project.title}</p>
+        </c:forEach>
+    </body>
+</html>
