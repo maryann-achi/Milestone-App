@@ -20,8 +20,6 @@
   </properties>
 
 
-  <dependencies>
-       </dependencies>
 
   <build>
     <finalName>milestonewebapp</finalName>
