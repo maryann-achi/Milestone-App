@@ -28,11 +28,6 @@
       <scope>test</scope>
     </dependency>
       <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
-      <dependency>
-          <groupId>javax.servlet</groupId>
-        <artifactId>jst1</artifactId>
-        <version>1.2</version>
-      </dependency>
 
     <dependency>
       <groupId>javax</groupId>
@@ -41,11 +36,6 @@
       <scope>provided</scope>
     </dependency>
 
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-jdk14</artifactId>
-      <version>${slf4j.version}</version>
-    </dependency>
   </dependencies>
 
   <build>
