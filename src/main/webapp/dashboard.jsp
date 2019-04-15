@@ -5,16 +5,38 @@
       Time: 11:38 AM
       To change this template use File | Settings | File Templates.
     --%>
-<%@ page isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.text.*,java.util.*" %>
 <html>
     <head>
-        <title>dash</title>
+        <title>Dashboard</title>
+        <style>
+            .halfimg {
+                width: 500px;
+                height: 500px;
+                object-fit: cover;
+                float: left;
+                padding: 5px;
+            }
+        </style>
     </head>
+    <%--<% SimpleDateFormat sdf=new SimpleDateFormat("MM/dd/yyyy"); %>--%>
+    <%--<h1>Welcome to Tomcat! Today is <%= sdf.format(new Date()) %></h1>--%>
     <body>
-        <c:forEach var="project" items="${projects}">
-            <p>${project.title}</p>
-        </c:forEach>
+        <div>
+            <img src="composition-materials-notebook-760710.jpg" alt="projects for image" class="halfimg">
+        </div>
+        <div>
+            <%--<p>testing</p><c:out value="Tags are working"/>--%>
+            <h1>${dashName}</h1>
+            <c:forEach var="project" items="${projects}">
+                <c:out value="${project.title}"/>  <br
+                <hr>
+            </c:forEach>
+
+            <a> add project</a>
+            <a> remove project</a>
+        </div>
     </body>
 </html>
