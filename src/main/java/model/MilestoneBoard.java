@@ -24,6 +24,10 @@ public class MilestoneBoard {
     public MilestoneBoard(String boardName){
         this.name = boardName;
         Projects = new ArrayList<>();
+
+        this.Projects.add(new Project("project1"));
+        this.Projects.add(new Project("project2"));
+
     }
 
     public String getName() {
