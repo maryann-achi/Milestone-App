@@ -28,10 +28,9 @@
             <img src="composition-materials-notebook-760710.jpg" alt="projects for image" class="halfimg">
         </div>
         <div>
-            <%--<p>testing</p><c:out value="Tags are working"/>--%>
             <h1>${dashName}</h1>
             <c:forEach var="project" items="${projects}">
-                <c:out value="${project.title}"/>  <br
+                <c:out value="${project.title}"/> <br>
                 <hr>
             </c:forEach>
 
