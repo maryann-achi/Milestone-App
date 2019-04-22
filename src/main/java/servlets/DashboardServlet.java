@@ -24,7 +24,8 @@ public class DashboardServlet extends HttpServlet {
 //    public DashboardServlet (String dashBoardName){
 //        this.dashName = dashBoardName;
 //    }
-MilestoneBoard test_dash = new MilestoneBoard(dashName);
+    MilestoneBoard test_dash = new MilestoneBoard(dashName);
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        set the content type and status for the page
@@ -36,11 +37,11 @@ MilestoneBoard test_dash = new MilestoneBoard(dashName);
         String dashName = test_dash.getName();
 //        following code is written with help from codejava.net
 //        add the destination for the data to be sent
-        String test99 = "testhe";
+
         String destination = "dashboard.jsp";
         req.setAttribute("dashName", dashName);
         req.setAttribute("projects",projects);
-        req.setAttribute("test99", test99);
+
         RequestDispatcher requestDispatcher = req.getRequestDispatcher(destination);
         requestDispatcher.forward(req, resp);
 
