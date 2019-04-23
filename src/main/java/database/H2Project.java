@@ -72,7 +72,7 @@ public class H2Project {
         try (PreparedStatement ps = connection.prepareStatement(LIST_PROJECTS_QUERY)) {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                out.add(new Project(rs.getString(1)));
+                out.add(new Project(rs.getInt(1), rs.getString(2), rs.getInt(3)));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

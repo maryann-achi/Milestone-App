@@ -1,5 +1,6 @@
 package servlets;
 
+import database.H2Project;
 import model.MilestoneBoard;
 import model.Project;
 
@@ -18,11 +19,15 @@ public class RemoveProjectServlet extends HttpServlet {
     //    this test dashboard will be converted into a singleton that is attached to each individual user
 //    private String dashName = "mimidoo's projects";
 //    MilestoneBoard test_dash1 = new MilestoneBoard(dashName);
+    private H2Project h2Project = new H2Project();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
         resp.setStatus(200);
+
+        int projectid = Integer.parseInt(req.getParameter("projectid"));
+        //remove project with the above id
 
         String[] removeThese = req.getParameterValues("removals");
         List<Project> projects = new ArrayList<>();
