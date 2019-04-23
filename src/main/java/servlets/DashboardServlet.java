@@ -12,16 +12,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("ALL")
 @WebServlet("/dashboards")
 public class DashboardServlet extends HttpServlet {
     static final Logger LOG = LoggerFactory.getLogger(DashboardServlet.class);
     //edit that will be added to the login class, every time a new user is created, a unique dashboard is added to them
     //then the get instance is used to get the dashboard from them
     private String dashName = "Arit's Board";
+    //private String dashName;
 
 //    public DashboardServlet (String dashBoardName){
 //        this.dashName = dashBoardName;
