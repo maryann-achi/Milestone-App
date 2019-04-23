@@ -34,8 +34,9 @@
                 <hr>
             </c:forEach>
 
-            <a> add project</a>
-            <a> remove project</a>
+            <a href="add_project.html"> add project</a>
+            <%--might remove this--%>
+            <a href="<%=request.getContextPath()%>/RemovalServlet"> remove project</a>
         </div>
     </body>
 </html>
