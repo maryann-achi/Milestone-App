@@ -28,6 +28,12 @@ public class MilestoneBoard {
         this.Projects.add(new Project("project1"));
         this.Projects.add(new Project("project2"));
 
+
+//        testing sth
+        this.Projects.add(new Project("project1"));
+        this.Projects.add(new Project("projects2"));
+//        end of the test area
+
     }
 
     public String getName() {

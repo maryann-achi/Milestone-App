@@ -50,6 +50,46 @@
       <artifactId>jstl</artifactId>
       <version>1.2</version>
     </dependency>
+
+
+    <!--this dependency is for the jsp functions to be used-->
+    <dependency>
+      <groupId>net.jakubholy.jeeutils.jsfelcheck</groupId>
+      <artifactId>static-jsfexpression-validator-jsf11</artifactId>
+      <!-- <artifactId>static-jsfexpression-validator-jsf12</artifactId> -->
+      <!-- <artifactId>static-jsfexpression-validator-jsf20</artifactId> - now only reuses 1.2 -->
+      <version>0.9.3</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-web-api</artifactId>
+      <version>6.0</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/jstl-api -->
+    <dependency>
+      <groupId>javax.servlet.jsp.jstl</groupId>
+      <artifactId>jstl-api</artifactId>
+      <version>1.2</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>1.4.199</version>
+    </dependency>
+
+
   </dependencies>
 
   <build>

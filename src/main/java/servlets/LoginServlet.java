@@ -1,5 +1,8 @@
 package servlets;
 
+import database.H2User;
+import model.User;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +14,8 @@ import java.io.PrintWriter;
 
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
+    private H2User h2User = new H2User();
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         response.setContentType("text/html");
         PrintWriter out=response.getWriter();
@@ -18,6 +23,10 @@ public class LoginServlet extends HttpServlet {
 
         String name = request.getParameter("name");
         String password = request.getParameter("password");
+
+
+        User user = new User(name, name, "email@email.com");
+        this.h2User.addPerson(user);
 
         if(password.equals("admin123")){
             out.println("Welcome to your Milestone dashboard, " + name);
