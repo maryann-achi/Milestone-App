@@ -1,5 +1,6 @@
 package servlets;
 
+import database.H2Milestone;
 import database.H2Project;
 import model.MilestoneBoard;
 import model.Project;
@@ -18,6 +19,8 @@ import java.util.List;
 @WebServlet("/dashboards")
 public class DashboardServlet extends HttpServlet {
     private H2Project h2Project = new H2Project();
+    private H2Milestone h2Milestone = new H2Milestone();
+
 
     static final Logger LOG = LoggerFactory.getLogger(DashboardServlet.class);
     //edit that will be added to the login class, every time a new user is created, a unique dashboard is added to them

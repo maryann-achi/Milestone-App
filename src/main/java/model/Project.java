@@ -14,7 +14,8 @@ public class Project {
     private List<Milestone> milestones;
     private int userid;
 
-    public Project(String ProjectTitle){
+    public Project(int userid, String ProjectTitle){
+        this.userid = userid;
         this.title = ProjectTitle;
         milestones = new ArrayList<>();
     }
