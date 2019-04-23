@@ -20,7 +20,7 @@
     <title>Login Page</title>
     <style type="text/css">
         body{
-            background-image: url("https://w-dog.net/wallpapers/13/3/376834609998331.jpg");
+            background-image: url("celebration-close-up-color-1930384.jpg");
         }
         #navigation{
             margin-top: 20px;
@@ -40,7 +40,7 @@
             display: block;
         }
         a:link, a:visited{
-            background-color: black;
+            background-color: #121212;
             color: white;
             padding: 10px 20px;
             text-align: center;
@@ -49,7 +49,7 @@
         }
         a:hover, a:active{
             background-color: white;
-            color: black;
+            color: #121212;
         }
         .col-md-6{
             display: inline;

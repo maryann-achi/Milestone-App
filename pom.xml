@@ -19,6 +19,9 @@
     <maven.compiler.target>1.7</maven.compiler.target>
   </properties>
 
+<<<<<<< HEAD
+
+=======
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -77,6 +80,7 @@
 
 
   </dependencies>
+>>>>>>> 93858f2b701006d27974cd7880f4146318a77e8b
 
   <build>
     <finalName>milestonewebapp</finalName>
@@ -110,6 +114,16 @@
         <plugin>
           <artifactId>maven-deploy-plugin</artifactId>
           <version>2.8.2</version>
+        </plugin>
+
+        <plugin>
+            <groupId>org.apache.tomcat.maven</groupId>
+            <artifactId>tomcat7-maven-plugin</artifactId>
+            <version>2.2.</version>
+            <configuration>
+              <path>/</path>
+              <contextReloadable>true</contextReloadable>
+            </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
