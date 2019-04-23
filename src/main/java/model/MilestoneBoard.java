@@ -24,10 +24,11 @@ public class MilestoneBoard {
     public MilestoneBoard(String boardName){
         this.name = boardName;
         projects = new ArrayList<>();
-//        testing sth
+
         this.projects.add(new Project("project1"));
-        this.projects.add(new Project("projects2"));
-//        end of the test area
+        this.projects.add(new Project("project2"));
+
+
     }
 
     public String getName() {

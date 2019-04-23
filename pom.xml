@@ -44,6 +44,13 @@
       <version>1.7.26</version>
       <scope>test</scope>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+    <dependency>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+
 
     <!--this dependency is for the jsp functions to be used-->
     <dependency>
@@ -74,11 +81,19 @@
       <artifactId>jstl-api</artifactId>
       <version>1.2</version>
     </dependency>
+
     <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
     <dependency>
       <groupId>jstl</groupId>
       <artifactId>jstl</artifactId>
       <version>1.2</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>1.4.199</version>
     </dependency>
 
   </dependencies>
