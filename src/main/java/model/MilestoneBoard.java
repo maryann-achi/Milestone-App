@@ -1,7 +1,7 @@
 package model;
 
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +24,10 @@ public class MilestoneBoard {
     public MilestoneBoard(String boardName){
         this.name = boardName;
         Projects = new ArrayList<>();
+//        testing sth
+        this.Projects.add(new Project("project1"));
+        this.Projects.add(new Project("projects2"));
+//        end of the test area
     }
 
     public String getName() {
