@@ -27,6 +27,7 @@ public class Project {
         milestones = new ArrayList<>();
     }
 
+
     public String getTitle() {
         return title;
     }
