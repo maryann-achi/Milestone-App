@@ -12,7 +12,7 @@ public class MilestoneBoard {
     private static MilestoneBoard instance = null;
 
     private String name;
-    private List<Project> Projects;
+    private List<Project> projects;
 
     public static MilestoneBoard getInstance(String name){
         if (instance == null || !instance.getName().equals(name)) {
@@ -23,10 +23,10 @@ public class MilestoneBoard {
 
     public MilestoneBoard(String boardName){
         this.name = boardName;
-        Projects = new ArrayList<>();
+        projects = new ArrayList<>();
 //        testing sth
-        this.Projects.add(new Project("project1"));
-        this.Projects.add(new Project("projects2"));
+        this.projects.add(new Project("project1"));
+        this.projects.add(new Project("projects2"));
 //        end of the test area
     }
 
@@ -35,20 +35,35 @@ public class MilestoneBoard {
     }
 
     public List<Project> getProjects() {
-        return Projects;
+        return projects;
     }
 
     public void addProject(Project project){
-        this.Projects.add(project);
+        this.projects.add(project);
     }
 
     public Project getProject(int index){
-        if(index < 0 || index > Projects.size()) return null;
-        return Projects.get(index);
+        if(index < 0 || index > projects.size()) return null;
+        return projects.get(index);
+    }
+
+//    Ari added a method to get projects by their names
+    public Project getProjectByName(String name){
+        Project valid = null;
+        for(Project project :this.projects){
+            if(project.getTitle().equals(name)){
+                valid = project;
+            }
+        }
+        return valid;
+    }
+//    Ari added a remove project method
+    public void removeProject(List<Project> projects){
+        this.projects.removeAll(projects);
     }
 
     public int getNumberOfProjects(){
-        return Projects.size();
+        return projects.size();
     }
 
 }

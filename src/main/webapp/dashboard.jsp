@@ -30,12 +30,14 @@
         <div>
             <h1>${dashName}</h1>
             <c:forEach var="project" items="${projects}">
-                <c:out value="${project.title}"/> <br>
+                <%--<c:out value="${project.title}"/> <br>--%>
+                <a href="<%=request.getContextPath()%>/MilestoneServlet?name=${project.title}">${project.title}</a><br>
                 <hr>
             </c:forEach>
 
-            <a> add project</a>
-            <a> remove project</a>
+            <a href="add_project.html"> add project</a>
+
+            <a href="<%=request.getContextPath()%>/RemovalServlet"> remove project</a>
         </div>
     </body>
 </html>
