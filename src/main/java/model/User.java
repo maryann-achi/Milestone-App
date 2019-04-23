@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 public class User {
     static final Logger LOG = LoggerFactory.getLogger(User.class);
 
+    private int id;
     private final String first;
     private final String last;
     private final String email;
@@ -26,5 +27,9 @@ public class User {
 
     public String getEmail() {
         return email;
+    }
+
+    public int getid() {
+        return id;
     }
 }
