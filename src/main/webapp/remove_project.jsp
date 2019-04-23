@@ -28,7 +28,7 @@
     <img src="composition-materials-notebook-760710.jpg" alt="projects for image" class="halfimg">
 </div>
 <div>
-    <h1>${dashName}</h1>
+    <h1>${dashName}: Remove Project(s)</h1>
     <form name="remove_project_form" action="RemoveProjectServlet" method="post">
 
 

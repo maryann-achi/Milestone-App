@@ -3,6 +3,8 @@ package model;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Milestone {
@@ -17,6 +19,15 @@ public class Milestone {
         expDueDate = dueDate;
         completionDate = compdate;
     }
+
+//    had to add a separate constructor because you don't know completion date as at when you create the milestone
+    public Milestone(String theTitle, String theDescription, Date dueDate){
+        title = theTitle;
+        description = theDescription;
+        expDueDate = dueDate;
+        completionDate = dueDate;
+    }
+    //end of additional constructor
 
     public String getTitle() {
         return title;
@@ -33,6 +44,18 @@ public class Milestone {
     public String getCompletionDate() {
         return completionDate.toString();
     }
+
+    //code to set the completion date
+    public Date setCompletionDate(String compDate){
+        Date completed = null;
+        try {
+            completed = new SimpleDateFormat("yyyy-MM-dd").parse(compDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return completed;
+    }
+    //end of code to set the completion date
 
     @Override
     public String toString(){
