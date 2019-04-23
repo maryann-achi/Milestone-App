@@ -1,5 +1,6 @@
 package servlets;
 
+import database.H2Project;
 import model.MilestoneBoard;
 import model.Project;
 import org.slf4j.Logger;
@@ -16,6 +17,8 @@ import java.util.List;
 
 @WebServlet("/dashboards")
 public class DashboardServlet extends HttpServlet {
+    private H2Project h2Project = new H2Project();
+
     static final Logger LOG = LoggerFactory.getLogger(DashboardServlet.class);
     //edit that will be added to the login class, every time a new user is created, a unique dashboard is added to them
     //then the get instance is used to get the dashboard from them
@@ -33,6 +36,7 @@ public class DashboardServlet extends HttpServlet {
         //List<Project> projects = MilestoneBoard.getInstance(this.dashName).getProjects();
 //        MilestoneBoard.getInstance(dashName).addProject(new Project("Ari Adetimehin"));
         List<Project> projects =MilestoneBoard.getInstance(dashName).getProjects();
+        //Project project = h2Project.findProject(1);
 //        String dashName = test_dash.getName();
 //        following code is written with help from codejava.net
 //        add the destination for the data to be sent
@@ -45,4 +49,11 @@ public class DashboardServlet extends HttpServlet {
         requestDispatcher.forward(req, resp);
 
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doGet(req, resp);
+    }
+
+
 }
