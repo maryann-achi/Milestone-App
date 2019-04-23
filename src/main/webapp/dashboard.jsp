@@ -18,11 +18,11 @@
                 object-fit: cover;
                 float: left;
                 position: relative;
-                padding-right: 5px;
+                /*padding-right: 5px;*/
             }
 
             }
-            .col-md-6{
+            .col-lg-6{
                 left: 0;
 
             }
