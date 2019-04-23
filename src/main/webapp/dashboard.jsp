@@ -41,6 +41,7 @@
     <%--<% SimpleDateFormat sdf=new SimpleDateFormat("MM/dd/yyyy"); %>--%>
     <%--<h1>Welcome to Tomcat! Today is <%= sdf.format(new Date()) %></h1>--%>
     <body>
+<!--<<<<<< HEAD-->
     <jsp:include page="head.jsp"></jsp:include>
     <div class="container-fluid">
         <div class="row">
@@ -50,19 +51,17 @@
                 <!--</div>-->
             </div>
             <div class="col-lg-6">
-                <!--<div class="text1">-->
-                    <%--<p>testing</p><c:out value="Tags are working"/>--%>
-                        <h1>${dashName}</h1>
-                        <c:forEach var="project" items="${projects}">
-                            <c:out value="${project.title}"/>  <br
-                            <hr>
-                        </c:forEach>
-                        <a> add project</a>
-                        <a> remove project</a>
-                <!--</div>-->
+
+                <h1>${dashName}</h1>
+                <c:forEach var="project" items="${projects}">
+                    <c:out value="${project.title}"/> <br>
+                    <hr>
+                </c:forEach>
+                <a> add project</a>
+                <a> remove project</a>
+
             </div>
-        </div>
-    </div>
+
     <jsp:include page="footer.jsp"></jsp:include>
     </body>
 </html>
