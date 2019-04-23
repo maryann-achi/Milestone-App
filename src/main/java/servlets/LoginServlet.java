@@ -27,7 +27,7 @@ public class LoginServlet extends HttpServlet {
         }
         else{
             out.println("Your username or password is incorrect, please try again!");
-            request.getRequestDispatcher("index.jsp").include(request, response);
+            //request.getRequestDispatcher("index.jsp").include(request, response);
         }
 
         out.close();
