@@ -9,11 +9,23 @@
 <html>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <head>
+<style type="text/css">
+    .foot{
+        background-color: #923F48;
+        height: 50px;
+        width: 100%;
+        bottom: 0;
+        position: fixed;
+        padding: 20px;
+    }
 
+</style>
 </head>
 <body>
+<div class="foot">
 <p align="center">
     Last updated: <%= new java.util.Date() %>
 </p>
+</div>
 </body>
 </html>
