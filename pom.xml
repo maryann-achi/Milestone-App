@@ -19,9 +19,6 @@
     <maven.compiler.target>1.7</maven.compiler.target>
   </properties>
 
-<<<<<<< HEAD
-
-=======
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -77,10 +74,15 @@
       <artifactId>jstl-api</artifactId>
       <version>1.2</version>
     </dependency>
-
+    <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+    <dependency>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
 
   </dependencies>
->>>>>>> 93858f2b701006d27974cd7880f4146318a77e8b
+
 
   <build>
     <finalName>milestonewebapp</finalName>
