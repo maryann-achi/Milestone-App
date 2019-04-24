@@ -28,7 +28,6 @@ public class MilestoneBoard {
         this.projects.add(new Project(1, "project1"));
         this.projects.add(new Project(33, "project2"));
 
-
     }
 
     public String getName() {

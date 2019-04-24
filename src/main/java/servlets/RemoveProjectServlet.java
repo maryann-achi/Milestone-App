@@ -11,14 +11,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/RemoveProjectServlet")
 public class RemoveProjectServlet extends HttpServlet {
-    //    this test dashboard will be converted into a singleton that is attached to each individual user
-//    private String dashName = "mimidoo's projects";
-//    MilestoneBoard test_dash1 = new MilestoneBoard(dashName);
+
     private H2Project h2Project = new H2Project();
 
     @Override
@@ -26,24 +23,39 @@ public class RemoveProjectServlet extends HttpServlet {
         resp.setContentType("text/html");
         resp.setStatus(200);
 
-        int projectid = Integer.parseInt(req.getParameter("projectid"));
-        //remove project with the above id
+        int userid = Integer.parseInt(req.getParameter("userid"));
 
+        List<Project> theProjects = h2Project.findProjects(userid);
         String[] removeThese = req.getParameterValues("removals");
-        List<Project> projects = new ArrayList<>();
-        for (String str: removeThese) {
-            projects.add(MilestoneBoard.getInstance("Arit's Board").getProjectByName(str));
+
+        for (String str: removeThese){
+            for(Project proj: theProjects){
+                if(proj.getTitle().equals(str)){
+                    int id = proj.getId();
+                    System.out.println(id);
+                    h2Project.removeProject(id);
+                }
+            }
         }
 
-        MilestoneBoard.getInstance("Arit's Board").removeProject(projects);
 
-        List<Project> updatedProjects = MilestoneBoard.getInstance("Arit's Board").getProjects();
+
+//        String[] removeThese = req.getParameterValues("removals");
+//        List<Project> projects = new ArrayList<>();
+//        for (String str: removeThese) {
+//            projects.add(MilestoneBoard.getInstance("Arit's Board").getProjectByName(str));
+//        }
+
+        //MilestoneBoard.getInstance("Arit's Board").removeProject(projects);
+        //List<Project> updatedProjects = MilestoneBoard.getInstance("Arit's Board").getProjects();
+
 
         String dashName1 = MilestoneBoard.getInstance("Arit's Board").getName();
 
         String destination = "dashboard.jsp";
         req.setAttribute("dashName", dashName1);
-        req.setAttribute("projects",updatedProjects);
+        req.setAttribute("projects",theProjects);
+        req.setAttribute("userid", userid);
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher(destination);
         requestDispatcher.forward(req, resp);

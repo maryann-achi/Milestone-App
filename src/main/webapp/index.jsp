@@ -46,6 +46,13 @@
             background-color: white;
             color: #121212;
         }
+        .form-horizontal{
+            margin-top: 25%;
+            width: 100%;
+            color: white;
+            font-size: 15px;
+            font-family: 'Montserrat', sans-serif;
+        }
 
     </style>
 </head>

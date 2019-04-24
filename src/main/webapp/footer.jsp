@@ -8,6 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
 <head>
 <style type="text/css">
     .foot{
@@ -17,6 +19,8 @@
         bottom: 0;
         position: fixed;
         padding: 20px;
+        color: white;
+        font-family: 'Montserrat', sans-serif;
     }
 
 </style>
@@ -24,6 +28,7 @@
 <body>
 <div class="foot">
 <p align="center">
+    (c) Lum-neh Angela | Ariyike Adetimehin | Mary Ann Achieng
     Last updated: <%= new java.util.Date() %>
 </p>
 </div>

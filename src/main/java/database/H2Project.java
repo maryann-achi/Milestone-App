@@ -79,12 +79,12 @@ public class H2Project {
         return out;
     }
 
-    public Project findProject(int id) {
-        final String LIST_PROJECTS_QUERY = "SELECT id, title, userid  FROM projects where id=?";
+    public Project findProject(int userid) {
+        final String LIST_PROJECTS_QUERY = "SELECT id, title, userid  FROM projects where userid=?";
         Project out = null;
 
         try (PreparedStatement ps = connection.prepareStatement(LIST_PROJECTS_QUERY)) {
-            ps.setInt(1, id);
+            ps.setInt(1, userid);
 
             ResultSet rs = ps.executeQuery();
             out = new Project(rs.getInt(1), rs.getString(2), rs.getInt(3));
@@ -94,17 +94,55 @@ public class H2Project {
         return out;
     }
 
+    public ArrayList<Project> findProjects(int userid) {
+        final String LIST_PROJECTS_QUERY = "SELECT id, title, userid  FROM projects where userid=?";
+        ArrayList<Project> out = new ArrayList<>();
+
+        try (PreparedStatement ps = connection.prepareStatement(LIST_PROJECTS_QUERY)) {
+            ps.setInt(1, userid);
+
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                out.add(new Project(rs.getInt(1), rs.getString(2), rs.getInt(3)));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        for(Project project : out){
+            System.out.println(project.getTitle());
+        }
+        return out;
+    }
+
     public boolean removeProject(int id) {
-        final String REMOVE_PROJECTS_QUERY = "DELETE FROM  + projects + WHERE id = " + id;
+        final String REMOVE_PROJECTS_QUERY = "DELETE FROM projects WHERE id = ?";
         try (PreparedStatement ps = connection.prepareStatement(REMOVE_PROJECTS_QUERY )) {
+            ps.setInt(1, id);
             return ps.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public boolean editProject(int id, String newTitle) {
-        String EDIT_PROJECTS_QUERY = "UPDATE  + projects +  SET name = '" + newTitle + "' WHERE id = " + id;
+//    public ArrayList<Project> removeProjects(int userid) {
+//        final String REMOVE_PROJECTS_QUERY = "SELECT id, title, userid  FROM projects where userid=?";
+//        ArrayList<Project> out = new ArrayList<>();
+//
+//        try (PreparedStatement ps = connection.prepareStatement(REMOVE_PROJECTS_QUERY)) {
+//            ps.setInt(1, userid);
+//
+//            ResultSet rs = ps.executeQuery();
+//            while(rs.next()){
+//                out.remove(new Project(rs.getInt(1), rs.getString(2), rs.getInt(3)));
+//            }
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//        return out;
+//    }
+
+    public boolean editProject(int userid, String newTitle) {
+        String EDIT_PROJECTS_QUERY = "UPDATE  + projects +  SET name = '" + newTitle + "' WHERE userid = " + userid;
         try (PreparedStatement ps = connection.prepareStatement(EDIT_PROJECTS_QUERY )) {
             return ps.execute();
         } catch (SQLException e) {

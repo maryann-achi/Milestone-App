@@ -9,6 +9,7 @@
 <html>
 
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
@@ -23,10 +24,6 @@
             text-decoration: none;
         }
 
-        nav {
-            font-family: monospace;
-        }
-
         .first{
             width: 100%;
             height: 75px;
@@ -36,6 +33,7 @@
             float: right;
             padding: 20px;
             margin: 0;
+            font-family: 'Montserrat', sans-serif;
             /*position: fixed;*/
         }
 
@@ -97,6 +95,7 @@
             clear: both;
             width: 100%;
         }
+
     </style>
 </head>
 <body>

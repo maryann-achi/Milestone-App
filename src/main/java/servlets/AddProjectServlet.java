@@ -45,7 +45,7 @@ public class AddProjectServlet extends HttpServlet {
         //List<Project> updatedProjects = test_dash1.getProjects();
         //List<Project> updatedProjects = MilestoneBoard.getInstance("Arit's Board").getProjects();
 
-        List<Project> updatedProjects = h2Project.findProjects();
+        List<Project> updatedProjects = h2Project.findProjects(userid);
 
         //String dashName1 = test_dash1.getName();
         //String dashName1 = MilestoneBoard.getInstance("Arit's Board").getName();
@@ -53,6 +53,7 @@ public class AddProjectServlet extends HttpServlet {
         String destination = "dashboard.jsp";
         req.setAttribute("dashName", "maryann");
         req.setAttribute("projects",updatedProjects);
+        req.setAttribute("userid", userid);
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher(destination);
         requestDispatcher.forward(req, resp);
@@ -62,6 +63,7 @@ public class AddProjectServlet extends HttpServlet {
         resp.setContentType("text/html");
         resp.setStatus(200);
 
+        int userid = Integer.parseInt(req.getParameter("userid"));
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("add_project.jsp");
         requestDispatcher.forward(req, resp);
     }
