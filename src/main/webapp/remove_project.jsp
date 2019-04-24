@@ -4,43 +4,58 @@
 
 <html>
 <head>
-    <title>Dashboard</title>
+    <title>Remove Project</title>
     <style>
         .halfimg {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /*float: left;*/
-            padding: 5px;
-        }
-        .imgdiv {
-            width: 50%;
-            height: 100%;
             float: left;
-            padding: 10px;
+            position: relative;
+            /*padding-right: 5px;*/
         }
+
+        .col-lg-6{
+            left: 0;
+
+        }
+
+        .row{
+            width: 100%;
+            margin-left: 0;
+        }
+        .container-fluid{
+            width: 100%;
+            padding-left: -15px;
+        }
+
     </style>
 </head>
-<%--<% SimpleDateFormat sdf=new SimpleDateFormat("MM/dd/yyyy"); %>--%>
-<%--<h1>Welcome to Tomcat! Today is <%= sdf.format(new Date()) %></h1>--%>
+
 <body>
-<div class="imgdiv">
-    <img src="composition-materials-notebook-760710.jpg" alt="projects for image" class="halfimg">
-</div>
-<div>
-    <h1>${dashName}: Remove Project(s)</h1>
-    <form name="remove_project_form" action="RemoveProjectServlet" method="post">
+<jsp:include page="head.jsp"></jsp:include>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6">
+            <img src="composition-materials-notebook-760710.jpg" alt="projects for image" class="halfimg">
+        </div>
+
+        <div>
+            <h1>${dashName}: Remove Project(s)</h1>
+            <form name="remove_project_form" action="RemoveProjectServlet" method="post">
 
 
-            <c:forEach var="project" items="${projects}">
-                <input type="checkbox" name="removals" value="${project.title}"> ${project.title} <br>
-                <%--<c:out value="${project.title}"/> <br>--%>
-                <hr>
-            </c:forEach>
+                    <c:forEach var="project" items="${projects}">
+                        <input type="checkbox" name="removals" value="${project.title}"> ${project.title} <br>
 
-        <!--submit button, triggers confirmation message once clicked and send form answers to post method-->
-        <input type= "submit" value= "OK" onclick="successMsg()"/> <a href="${pageContext.request.contextPath}/dashboards">back to projects</a>
-    </form>
+                        <hr>
+                    </c:forEach>
+
+                <!--submit button, triggers confirmation message once clicked and send form answers to post method-->
+                <input type= "submit" value= "OK" onclick="successMsg()"/> <a href="${pageContext.request.contextPath}/dashboards">back to projects</a>
+            </form>
+        </div>
+    </div>
 </div>
 </body>
 </html>

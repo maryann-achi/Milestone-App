@@ -46,14 +46,14 @@ public class Milestone {
     }
 
     //code to set the completion date
-    public Date setCompletionDate(String compDate){
-        Date completed = null;
+    public void setCompletionDate(String compDate){
+
         try {
-            completed = new SimpleDateFormat("yyyy-MM-dd").parse(compDate);
+            this.completionDate = new SimpleDateFormat("yyyy-MM-dd").parse(compDate);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        return completed;
+
     }
     //end of code to set the completion date
 

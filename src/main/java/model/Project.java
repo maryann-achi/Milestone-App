@@ -25,6 +25,16 @@ public class Project {
         return milestones;
     }
 
+    public Milestone getMilestoneByName(String name){
+        Milestone valid = null;
+        for(Milestone milestone :this.milestones){
+            if(milestone.getTitle().equals(name)){
+                valid = milestone;
+            }
+        }
+        return valid;
+    }
+
     public void addMilestone(Milestone milestone) {
         this.milestones.add(milestone);
     }
@@ -32,5 +42,9 @@ public class Project {
     public void removeMilestone(int index){
         if (index < 0 || index > milestones.size()) return;
         milestones.remove(index);
+    }
+
+    public void removeMilestones(List<Milestone> milestones){
+        this.milestones.removeAll(milestones);
     }
 }
