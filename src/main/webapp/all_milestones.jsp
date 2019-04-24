@@ -70,7 +70,7 @@
                         <hr>
                     </c:forEach>
 
-                <a href="<%=request.getContextPath()%>/MilestoneMenuServlet?name=${projectName}">Back to project</a>
+                <a href="<%=request.getContextPath()%>/MilestoneMenuServlet?name=${projectName}&userid=${userid}">Back to project</a>
 
         </div>
     </div>

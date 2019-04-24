@@ -95,7 +95,8 @@
                     <label>
                         Project
                         <!--input for the project, must always be checked-->
-                        <input type="radio" name="projTitle" value="<%= request.getParameter("projectTitle") %>" checked> <%= request.getParameter("projectTitle") %> <br>
+                        <input type="hidden" name="projTitle" value="<%= request.getParameter("projectTitle") %>" > <br>
+                        <input type="hidden" name="userid" value="<%= request.getParameter("userid") %>" ><br>
                     </label><br>
 
                     <!--submit button, triggers confirmation message once clicked and send form answers to post method-->

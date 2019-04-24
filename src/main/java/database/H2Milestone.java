@@ -58,13 +58,15 @@ public class H2Milestone {
     }
 
     public void addMilestone(Milestone goal) {
-        final String ADD_MILESTONE_QUERY = "INSERT INTO milestones (projectid, title, description, expDueDate, completionDate) VALUES (?,?,?,?)";
+        final String ADD_MILESTONE_QUERY = "INSERT INTO milestones (projectid, title, description, expDueDate, completionDate) VALUES (?,?,?,?,?)";
         try (PreparedStatement ps = connection.prepareStatement(ADD_MILESTONE_QUERY)) {
             ps.setInt(1, goal.getProjectid());
             ps.setString(2, goal.getTitle());
             ps.setString(3, goal.getDescription());
-            ps.setString(4, goal.getExpDueDate());
-            ps.setString(5, goal.getCompletionDate());
+            java.sql.Date exptDate = new java.sql.Date(goal.getExpDueDate().getTime());
+            ps.setDate(4, exptDate);
+            java.sql.Date compltDate = new java.sql.Date(goal.getCompletionDate().getTime());
+            ps.setDate(5, compltDate);
             ps.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -86,7 +88,9 @@ public class H2Milestone {
         try (PreparedStatement ps = connection.prepareStatement(LIST_MILESTONES_QUERY)) {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                out.add(new Milestone(rs.getString(1), rs.getString(2), rs.getDate(3), rs.getDate(4)));
+                Date expt = new Date(rs.getDate(3).getTime());
+                Date cpt = new Date(rs.getDate(4).getTime());
+                out.add(new Milestone(rs.getString(3), rs.getString(4), expt, cpt, rs.getInt(2)));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -94,4 +98,20 @@ public class H2Milestone {
         return out;
     }
 
+    public List<Milestone> findMilestones(int projectid){
+        final String LIST_MILESTONES_QUERY = "SELECT id, projectid, title, description, expDueDate, completionDate FROM milestones WHERE projectid = ?";
+        List<Milestone> out = new ArrayList<>();
+        try (PreparedStatement ps = connection.prepareStatement(LIST_MILESTONES_QUERY)) {
+            ps.setInt(1, projectid);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Date expt = new Date(rs.getDate(5).getTime());
+                Date cpt = new Date(rs.getDate(6).getTime());
+                out.add(new Milestone(rs.getString(3), rs.getString(4), expt, cpt, rs.getInt(2)));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return out;
+    }
 }
