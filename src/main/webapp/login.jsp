@@ -53,9 +53,7 @@
             background-color: white;
             color: #121212;
         }
-        .col-md-6{
-            display: inline;
-        }
+
         .form-horizontal{
             margin-left: 100%;
             margin-top: 50%;
