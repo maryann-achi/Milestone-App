@@ -17,6 +17,7 @@
         bottom: 0;
         position: fixed;
         padding: 20px;
+        color: white;
     }
 
 </style>
@@ -24,6 +25,7 @@
 <body>
 <div class="foot">
 <p align="center">
+    (c) Lum-neh Angela | Ariyike Adetimehin | Mary Ann Achieng
     Last updated: <%= new java.util.Date() %>
 </p>
 </div>

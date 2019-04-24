@@ -25,8 +25,8 @@ public class MilestoneBoard {
         this.name = boardName;
         projects = new ArrayList<>();
 
-        this.projects.add(new Project("project1"));
-        this.projects.add(new Project("project2"));
+        this.projects.add(new Project(1,"project1"));
+        this.projects.add(new Project(33,"project2"));
 
 
     }
