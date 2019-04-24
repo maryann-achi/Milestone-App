@@ -15,20 +15,28 @@ import java.io.PrintWriter;
 public class LoginServlet extends HttpServlet {
     private H2User h2User = new H2User();
 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html");
+        request.getRequestDispatcher("login.jsp").forward(request, response);
+
+    }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         response.setContentType("text/html");
         PrintWriter out=response.getWriter();
 
       //request.getRequestDispatcher("index.jsp").include(request, response);
 
+
         String name = request.getParameter("name");
         String password = request.getParameter("password");
 
 
-        User user = new User(name, name, "email@email.com");
-        this.h2User.addPerson(user);
+        User user = this.h2User.findUser(name, password);
+        //this.h2User.addUser(user);
+        request.setAttribute("user", user);
 
-        if(password.equals("admin123")){
+        if(user != null){
+            System.out.println("user not null");
             //out.println("Welcome to your Milestone dashboard, " + name);
             request.getRequestDispatcher("dashboards").forward(request, response);
 //            HttpSession session = request.getSession();

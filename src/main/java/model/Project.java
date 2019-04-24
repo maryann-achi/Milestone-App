@@ -55,9 +55,11 @@ public class Project {
         milestones.remove(index);
     }
 
+
     public void removeMilestones(List<Milestone> milestones) {
         this.milestones.removeAll(milestones);
     }
+
 
     public void setTitle(String title) {
         this.title = title;
