@@ -22,7 +22,14 @@ public class Milestone {
         completionDate = compdate;
         projectid = projId;
     }
-
+    public Milestone(int theId, String theTitle, String theDescription, Date dueDate, Date compdate, int projId){
+        id = theId;
+        title = theTitle;
+        description = theDescription;
+        expDueDate = dueDate;
+        completionDate = compdate;
+        projectid = projId;
+    }
 //    had to add a separate constructor because you don't know completion date as at when you create the milestone
     public Milestone(String theTitle, String theDescription, Date dueDate, int projId){
         title = theTitle;

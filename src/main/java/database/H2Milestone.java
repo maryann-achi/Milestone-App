@@ -74,8 +74,19 @@ public class H2Milestone {
     }
 
     public boolean removeMilestone(int id){
-        final String REMOVE_MILESTONE_QUERY = "DELETE FROM" + milestones + "WHERE id =" + id;
+        final String REMOVE_MILESTONE_QUERY = "DELETE FROM milestones WHERE id = ?";
         try(PreparedStatement ps = connection.prepareStatement(REMOVE_MILESTONE_QUERY)){
+            ps.setInt(1, id);
+            return ps.execute();
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public boolean removeMilestones(int projectId){
+        final String REMOVE_MILESTONE_QUERY = "DELETE FROM milestones WHERE projectid = ?";
+        try(PreparedStatement ps = connection.prepareStatement(REMOVE_MILESTONE_QUERY)){
+            ps.setInt(1, projectId);//projectId that is passed in as a parameter
             return ps.execute();
         }catch (SQLException e){
             throw new RuntimeException(e);
@@ -88,9 +99,9 @@ public class H2Milestone {
         try (PreparedStatement ps = connection.prepareStatement(LIST_MILESTONES_QUERY)) {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                Date expt = new Date(rs.getDate(3).getTime());
-                Date cpt = new Date(rs.getDate(4).getTime());
-                out.add(new Milestone(rs.getString(3), rs.getString(4), expt, cpt, rs.getInt(2)));
+                Date expt = new Date(rs.getDate(5).getTime());
+                Date cpt = new Date(rs.getDate(6).getTime());
+                out.add(new Milestone(rs.getInt(1),rs.getString(3), rs.getString(4), expt, cpt, rs.getInt(2)));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -107,7 +118,7 @@ public class H2Milestone {
             while (rs.next()) {
                 Date expt = new Date(rs.getDate(5).getTime());
                 Date cpt = new Date(rs.getDate(6).getTime());
-                out.add(new Milestone(rs.getString(3), rs.getString(4), expt, cpt, rs.getInt(2)));
+                out.add(new Milestone(rs.getInt(1),rs.getString(3), rs.getString(4), expt, cpt, rs.getInt(2)));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

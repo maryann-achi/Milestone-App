@@ -1,5 +1,7 @@
 package servlets;
 
+import database.H2Milestone;
+import database.H2Project;
 import model.Milestone;
 import model.MilestoneBoard;
 import model.Project;
@@ -12,10 +14,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @WebServlet("/RemoveMilestoneServlet")
 public class RemoveMilestoneServlet extends HttpServlet {
+    H2Project h2Project = new H2Project();
+    H2Milestone h2Milestone = new H2Milestone();
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
@@ -23,19 +28,42 @@ public class RemoveMilestoneServlet extends HttpServlet {
 
         String projectName = req.getParameter("projTitle");
         String[] removeThese = req.getParameterValues("removalM");
-        List<Milestone> milestones = new ArrayList<>();
-        for (String str: removeThese) {
-            milestones.add(MilestoneBoard.getInstance("Arit's Board").getProjectByName(projectName).getMilestoneByName(str));
+        int userid = Integer.parseInt(req.getParameter("userid"));
+        System.out.println("the available miles: "+Arrays.toString(removeThese));
+
+        Project temp = null;
+        List<Project> theProjects = h2Project.findProjects(userid);
+        for(Project proj: theProjects){
+            if(proj.getTitle().equals(projectName)){
+                temp = proj;
+            }
+        }
+        int id = temp.getId();
+        List<Milestone> check = h2Milestone.findMilestones(id);
+        for(String test: removeThese){
+            int testInt = Integer.parseInt(test);
+            h2Milestone.removeMilestone(testInt);
         }
 
-//        remove all the matching milestones from the project
-        MilestoneBoard.getInstance("Arit's Board").getProjectByName(projectName).removeMilestones(milestones);
-
-        Project presentProject = MilestoneBoard.getInstance("Arit's Board").getProjectByName(projectName);
+//        List<Milestone> theMilestones = null;
+//        for(Project proj: theProjects){
+//            if(proj.getTitle().equals(projectName)){
+//                id = proj.getId();
+//                theMilestones = h2Milestone.findMilestones(id);
+//                for(Milestone stone: theMilestones) {
+//                    for(String str: removeThese) {
+//                        if (stone.getTitle().equals(str)) {
+//                            h2Milestone.removeMilestones(id);
+//                        }
+//                    }
+//                }
+//            }
+//        }
 
         String destination = "all_milestones.jsp";
         req.setAttribute("projectName",projectName);
-        req.setAttribute("milestones",presentProject.getMilestones());
+        req.setAttribute("milestones", check);
+        req.setAttribute("userid", userid);
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher(destination);
         requestDispatcher.forward(req, resp);

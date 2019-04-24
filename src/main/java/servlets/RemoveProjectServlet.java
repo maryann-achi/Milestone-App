@@ -38,18 +38,6 @@ public class RemoveProjectServlet extends HttpServlet {
             }
         }
 
-
-
-//        String[] removeThese = req.getParameterValues("removals");
-//        List<Project> projects = new ArrayList<>();
-//        for (String str: removeThese) {
-//            projects.add(MilestoneBoard.getInstance("Arit's Board").getProjectByName(str));
-//        }
-
-        //MilestoneBoard.getInstance("Arit's Board").removeProject(projects);
-        //List<Project> updatedProjects = MilestoneBoard.getInstance("Arit's Board").getProjects();
-
-
         String dashName1 = MilestoneBoard.getInstance("Arit's Board").getName();
 
         String destination = "dashboard.jsp";

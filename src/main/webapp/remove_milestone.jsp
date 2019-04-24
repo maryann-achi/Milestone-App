@@ -2,6 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.text.*,java.util.*" %>
 <%@ page import="model.Project, model.MilestoneBoard, model.Milestone" %>
+<%@ page import="database.H2Milestone, database.H2Project, database.H2User" %>
 
 <html>
 <head>
@@ -43,31 +44,44 @@
 
         <div>
             <%
-                Project project = MilestoneBoard.getInstance("Arit's Board").getProjectByName(request.getParameter("projectTitle"));
-                List<Milestone> theMilestones = project.getMilestones();
-                String dashName2 = MilestoneBoard.getInstance("Arit's Board").getName();
-                pageContext.setAttribute("dashName2", dashName2);
+                //initialise both the milestone and project database objects
+                H2Project h2Project = new H2Project();
+                H2Milestone h2Milestone = new H2Milestone();
+
+                int userid = Integer.parseInt(request.getParameter("userid"));
+                String projectName = request.getParameter("projectTitle");
+                List<Project> theProjects = h2Project.findProjects(userid);
+
+                int id = 0;
+                List<Milestone> theMilestones = null;
+                for(Project proj: theProjects){
+                    if(proj.getTitle().equals(projectName)){
+                        id = proj.getId();
+                        theMilestones = h2Milestone.findMilestones(id);
+                    }
+                }
+
+                pageContext.setAttribute("userid", userid);
                 pageContext.setAttribute("theMilestones", theMilestones);
-//                out.println(dashName2);
             %>
 
-            <h1> ${dashName2}: Remove Milestone(s)</h1>
+            <h1>Remove Milestone(s)</h1>
             <form name="remove_milestone_form" action="RemoveMilestoneServlet" method="post">
 
 
                 <c:forEach var="milestone" items="${theMilestones}">
-                    <input type="checkbox" name="removalM" value="${milestone.title}"> ${milestone.title} <br>
+                    <input type="checkbox" name="removalM" value="${milestone.id}"> ${milestone.title} <br>
 
                     <hr>
                 </c:forEach>
                 <label>
-                    project
                     <!--input for the project, must always be checked-->
-                    <input type="radio" name="projTitle" value="<%= request.getParameter("projectTitle") %>" checked> <%= request.getParameter("projectTitle") %> <br>
+                    <input type="hidden" name="projTitle" value="<%= request.getParameter("projectTitle") %>"><br>
+                    <input type="hidden" name="userid" value="<%= request.getParameter("userid")%>"><br>
                 </label><br>
 
                 <!--submit button, triggers confirmation message once clicked and send form answers to post method-->
-                <input type= "submit" value= "OK"/> <a href="${pageContext.request.contextPath}/dashboards">back to projects</a>
+                <input type= "submit" value= "OK"/> <a href="${pageContext.request.contextPath}/dashboards?userid=<%= request.getParameter("userid")%>">back to projects</a>
             </form>
         </div>
     </div>
