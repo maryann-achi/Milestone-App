@@ -59,7 +59,7 @@
                         <!--input box for the project title-->
                         <input type="text" name="projectDesc"/>
                     </label><br>
-
+                    <input type="radio" name="userid" value="<%= request.getParameter("userid") %>" checked> <%= request.getParameter("userid") %> <br>
                     <!--submit button, triggers confirmation message once clicked and send form answers to post method-->
                     <input type= "submit" value= "OK"/> <a href="/dashboards">back to projects</a>
                 </form>

@@ -13,7 +13,6 @@ public class H2Project {
 
     private Connection connection;
     private Server server;
-    private String projects;
 
     static Connection getConnection(String db) throws SQLException, ClassNotFoundException {
         Class.forName("org.h2.Driver");  // ensure the driver class is loaded when the DriverManager looks for an installed class. Idiom.
@@ -56,7 +55,7 @@ public class H2Project {
     }
 
     public void addProject(Project project) {
-        final String ADD_PROJECT_QUERY = "INSERT INTO project (userid, title) VALUES (?, ?)";
+        final String ADD_PROJECT_QUERY = "INSERT INTO projects (userid, title) VALUES (?, ?)";
         try (PreparedStatement ps = connection.prepareStatement(ADD_PROJECT_QUERY)) {
             ps.setInt(1, project.getUserid());
             ps.setString(2, project.getTitle());
@@ -96,7 +95,7 @@ public class H2Project {
     }
 
     public boolean removeProject(int id) {
-        final String REMOVE_PROJECTS_QUERY = "DELETE FROM " + projects + " WHERE id = " + id;
+        final String REMOVE_PROJECTS_QUERY = "DELETE FROM  + projects + WHERE id = " + id;
         try (PreparedStatement ps = connection.prepareStatement(REMOVE_PROJECTS_QUERY )) {
             return ps.execute();
         } catch (SQLException e) {
@@ -105,7 +104,7 @@ public class H2Project {
     }
 
     public boolean editProject(int id, String newTitle) {
-        String EDIT_PROJECTS_QUERY = "UPDATE " + projects + " SET name = '" + newTitle + "' WHERE id = " + id;
+        String EDIT_PROJECTS_QUERY = "UPDATE  + projects +  SET name = '" + newTitle + "' WHERE id = " + id;
         try (PreparedStatement ps = connection.prepareStatement(EDIT_PROJECTS_QUERY )) {
             return ps.execute();
         } catch (SQLException e) {

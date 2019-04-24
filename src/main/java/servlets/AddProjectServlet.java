@@ -1,7 +1,6 @@
 package servlets;
 
 import database.H2Project;
-import model.MilestoneBoard;
 import model.Project;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,23 +29,29 @@ public class AddProjectServlet extends HttpServlet {
         resp.setStatus(200);
 
         //receives the project title from the form that has been sent
+
         String newProjectTitle = req.getParameter("projectTitle");
+        System.out.println(req.getParameter("userid"));
         int userid = Integer.parseInt(req.getParameter("userid"));
+
+
 
         //creates a new project using the specified title
         Project newProj = new Project(userid, newProjectTitle);
         h2Project.addProject(newProj);
         //test_dash1.addProject(newProj);
-        MilestoneBoard.getInstance("Arit's Board").addProject(newProj);
+        //MilestoneBoard.getInstance("Arit's Board").addProject(newProj);
 
         //List<Project> updatedProjects = test_dash1.getProjects();
-        List<Project> updatedProjects = MilestoneBoard.getInstance("Arit's Board").getProjects();
+        //List<Project> updatedProjects = MilestoneBoard.getInstance("Arit's Board").getProjects();
+
+        List<Project> updatedProjects = h2Project.findProjects();
 
         //String dashName1 = test_dash1.getName();
-        String dashName1 = MilestoneBoard.getInstance("Arit's Board").getName();
+        //String dashName1 = MilestoneBoard.getInstance("Arit's Board").getName();
 
         String destination = "dashboard.jsp";
-        req.setAttribute("dashName", dashName1);
+        req.setAttribute("dashName", "maryann");
         req.setAttribute("projects",updatedProjects);
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher(destination);
