@@ -41,28 +41,30 @@
     <%--<h1>Welcome to Tomcat! Today is <%= sdf.format(new Date()) %></h1>--%>
     <body>
 
-    <jsp:include page="head.jsp"></jsp:include>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-6">
+        <jsp:include page="head.jsp"></jsp:include>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
                     <img src="composition-materials-notebook-760710.jpg" alt="projects for image" class="halfimg">
+                </div>
+                <div class="col-lg-6">
+
+                    <h1>${dashName}: All Projects</h1>
+                    <c:forEach var="project" items="${projects}">
+                        <%--<c:out value="${project.title}"/> <br>--%>
+                        <a href="<%=request.getContextPath()%>/MilestoneMenuServlet?name=${project.title}">${project.title}</a><br>
+                        <hr>
+                    </c:forEach>
+
+                    <a href="add_project.jsp"> add project</a>
+
+                    <a href="<%=request.getContextPath()%>/RemovalServlet"> remove project</a>
+
+                </div>
             </div>
-            <div class="col-lg-6">
+        </div>
 
-                <h1>${dashName}</h1>
-                <c:forEach var="project" items="${projects}">
-                    <%--<c:out value="${project.title}"/> <br>--%>
-                    <a href="<%=request.getContextPath()%>/MilestoneServlet?name=${project.title}">${project.title}</a><br>
-                    <hr>
-                </c:forEach>
-
-                <a href="add_project.html"> add project</a>
-
-                <a href="<%=request.getContextPath()%>/RemovalServlet"> remove project</a>
-
-            </div>
-
-    <jsp:include page="footer.jsp"></jsp:include>
+        <jsp:include page="footer.jsp"></jsp:include>
 
     </body>
 </html>

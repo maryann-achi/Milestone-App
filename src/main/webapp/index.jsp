@@ -12,7 +12,8 @@
     <title>The first page</title>
     <style type="text/css">
         body{
-            background-image: url("celebration-close-up-color-1930384.jpg");
+            background:linear-gradient(0deg,rgba(89,37,43,0.5),rgba(89,37,43,0.5)),url("celebration-close-up-color-1930384.jpg");
+            background-size:cover;
         }
         .login{
             margin: auto;

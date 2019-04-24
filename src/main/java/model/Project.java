@@ -36,6 +36,16 @@ public class Project {
         return milestones;
     }
 
+    public Milestone getMilestoneByName(String name){
+        Milestone valid = null;
+        for(Milestone milestone :this.milestones){
+            if(milestone.getTitle().equals(name)){
+                valid = milestone;
+            }
+        }
+        return valid;
+    }
+
     public void addMilestone(Milestone milestone) {
         this.milestones.add(milestone);
     }
@@ -45,6 +55,10 @@ public class Project {
         milestones.remove(index);
     }
 
+<<<<<<< HEAD
+    public void removeMilestones(List<Milestone> milestones){
+        this.milestones.removeAll(milestones);
+=======
     public void setTitle(String title) {
         this.title = title;
     }
@@ -59,5 +73,6 @@ public class Project {
 
     public void setUserid(int userid) {
         this.userid = userid;
+>>>>>>> 95fad108da63d650f3b21c5c1cf910aa4479cca3
     }
 }
