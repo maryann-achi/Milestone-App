@@ -10,6 +10,8 @@ import java.util.Date;
 public class Milestone {
     static final Logger lOG = LoggerFactory.getLogger(Milestone.class);
 
+    private int id;
+    private int projectid;
     private String title, description;
     private Date expDueDate, completionDate;
 
@@ -45,6 +47,22 @@ public class Milestone {
         return completionDate.toString();
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getProjectid() {
+        return projectid;
+    }
+
+    public void setProjectid(int projectid) {
+        this.projectid = projectid;
+    }
+
     //code to set the completion date
     public void setCompletionDate(String compDate){
 
@@ -62,4 +80,5 @@ public class Milestone {
         return String.format("Title: %s\nDescription: %s\nExpected due date: %s\n Actual Completed date: %s",
                 title, description, expDueDate, completionDate);
     }
+
 }

@@ -17,8 +17,11 @@
             height: 100%;
             object-fit: cover;
             float: left;
+<<<<<<< HEAD
             position: relative;
             /*padding-right: 5px;*/
+=======
+>>>>>>> 95fad108da63d650f3b21c5c1cf910aa4479cca3
         }
 
         .col-lg-6{
@@ -39,6 +42,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
     <jsp:include page="head.jsp"></jsp:include>
     <div class="container-fluid">
         <div class="row">
@@ -60,5 +64,21 @@
         </div>
     </div>
     <jsp:include page="footer.jsp"></jsp:include>
+=======
+<jsp:include page="head.jsp"></jsp:include>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6">
+            <img src="composition-materials-notebook-760710.jpg" alt="projects for image" class="halfimg">
+        </div>
+        <div class="col-lg-6">
+             <h1>${url}</h1>
+
+    <a href="add_milestone.html">add milestone</a>
+    <input type= "submit" value= "OK"/> <br> <a href="/dashboards">back to projects</a>
+</div>
+
+<jsp:include page="footer.jsp"></jsp:include>
+>>>>>>> 95fad108da63d650f3b21c5c1cf910aa4479cca3
 </body>
 </html>

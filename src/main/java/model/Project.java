@@ -9,13 +9,24 @@ import java.util.List;
 public class Project {
     static final Logger LOG = LoggerFactory.getLogger(Project.class);
 
+    private int id;
     private String title;
     private List<Milestone> milestones;
+    private int userid;
 
-    public Project(String ProjectTitle){
+    public Project(int userid, String ProjectTitle){
+        this.userid = userid;
         this.title = ProjectTitle;
         milestones = new ArrayList<>();
     }
+
+    public Project(int id, String ProjectTitle, int userid){
+        this.id = id;
+        this.userid = userid;
+        this.title = ProjectTitle;
+        milestones = new ArrayList<>();
+    }
+
 
     public String getTitle() {
         return title;
@@ -44,7 +55,24 @@ public class Project {
         milestones.remove(index);
     }
 
+<<<<<<< HEAD
     public void removeMilestones(List<Milestone> milestones){
         this.milestones.removeAll(milestones);
+=======
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setMilestones(List<Milestone> milestones) {
+        this.milestones = milestones;
+    }
+
+    public int getUserid() {
+        return userid;
+    }
+
+    public void setUserid(int userid) {
+        this.userid = userid;
+>>>>>>> 95fad108da63d650f3b21c5c1cf910aa4479cca3
     }
 }

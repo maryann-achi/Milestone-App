@@ -1,5 +1,6 @@
 package servlets;
 
+import database.H2Project;
 import model.MilestoneBoard;
 import model.Project;
 import org.slf4j.Logger;
@@ -17,6 +18,7 @@ import java.util.List;
 @WebServlet("/AddProjectServlet")
 public class AddProjectServlet extends HttpServlet {
     static final Logger LOG = LoggerFactory.getLogger(DashboardServlet.class);
+    private H2Project h2Project = new H2Project();
 
 //    this test dashboard will be converted into a singleton that is attached to each individual user
     //private String dashName = "mimidoo's projects";
@@ -29,9 +31,11 @@ public class AddProjectServlet extends HttpServlet {
 
         //receives the project title from the form that has been sent
         String newProjectTitle = req.getParameter("projectTitle");
+        int userid = Integer.parseInt(req.getParameter("userid"));
 
         //creates a new project using the specified title
-        Project newProj = new Project(newProjectTitle);
+        Project newProj = new Project(userid, newProjectTitle);
+        h2Project.addProject(newProj);
         //test_dash1.addProject(newProj);
         MilestoneBoard.getInstance("Arit's Board").addProject(newProj);
 
