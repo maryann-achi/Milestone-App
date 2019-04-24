@@ -52,4 +52,12 @@ public class AddProjectServlet extends HttpServlet {
         RequestDispatcher requestDispatcher = req.getRequestDispatcher(destination);
         requestDispatcher.forward(req, resp);
     }
+
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html");
+        resp.setStatus(200);
+
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("add_project.jsp");
+        requestDispatcher.forward(req, resp);
+    }
 }

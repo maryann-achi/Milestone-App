@@ -13,13 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
-<<<<<<< HEAD
-import java.io.PrintWriter;
-import java.util.ArrayList;
-=======
->>>>>>> 95fad108da63d650f3b21c5c1cf910aa4479cca3
 import java.util.List;
 
 @SuppressWarnings("ALL")
