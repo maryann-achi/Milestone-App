@@ -28,6 +28,23 @@
         .container-fluid{
             width: 100%;
             padding-left: -15px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .col-lg-6 a:link, a:visited {
+            background-color: #E25F6D;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .col-lg-6 a:hover, a:active {
+            background-color: #E25F6D;
+            color: #121212;
+            margin-top: 20px;
         }
 
     </style>
@@ -53,7 +70,7 @@
                         <hr>
                     </c:forEach>
 
-                <a href="<%=request.getContextPath()%>/MilestoneMenuServlet?name=${projectName}">back to project</a>
+                <a href="<%=request.getContextPath()%>/MilestoneMenuServlet?name=${projectName}">Back to project</a>
 
         </div>
     </div>

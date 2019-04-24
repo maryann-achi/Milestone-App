@@ -23,7 +23,8 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         response.setContentType("text/html");
         PrintWriter out=response.getWriter();
-        //request.getRequestDispatcher("index.jsp").include(request, response);
+
+      //request.getRequestDispatcher("index.jsp").include(request, response);
 
 
         String name = request.getParameter("name");

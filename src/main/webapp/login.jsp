@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
@@ -61,6 +62,7 @@
             width: 100%;
             color: white;
             font-size: 18px;
+            font-family: 'Montserrat', sans-serif;
         }
 
     </style>
