@@ -90,7 +90,7 @@
                     <h1>Projects</h1>
                     <c:forEach var="project" items="${projects}">
                         <%--<c:out value="${project.title}"/> <br>--%>
-                        <a href="<%=request.getContextPath()%>/MilestoneMenuServlet?name=${project.title}">${project.title}</a><br>
+                        <a href="<%=request.getContextPath()%>/MilestoneMenuServlet?name=${project.title}&userid=${userid}">${project.title}</a><br>
                         <hr>
                     </c:forEach>
                     <%--Id: ${user.id}--%>

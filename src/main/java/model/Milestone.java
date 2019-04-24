@@ -15,19 +15,21 @@ public class Milestone {
     private String title, description;
     private Date expDueDate, completionDate;
 
-    public Milestone(String theTitle, String theDescription, Date dueDate, Date compdate){
+    public Milestone(String theTitle, String theDescription, Date dueDate, Date compdate, int projId){
         title = theTitle;
         description = theDescription;
         expDueDate = dueDate;
         completionDate = compdate;
+        projectid = projId;
     }
 
 //    had to add a separate constructor because you don't know completion date as at when you create the milestone
-    public Milestone(String theTitle, String theDescription, Date dueDate){
+    public Milestone(String theTitle, String theDescription, Date dueDate, int projId){
         title = theTitle;
         description = theDescription;
         expDueDate = dueDate;
         completionDate = dueDate;
+        projectid = projId;
     }
     //end of additional constructor
 
@@ -39,12 +41,12 @@ public class Milestone {
         return description;
     }
 
-    public String getExpDueDate() {
-        return expDueDate.toString();
+    public Date getExpDueDate() {
+        return expDueDate;
     }
 
-    public String getCompletionDate() {
-        return completionDate.toString();
+    public Date getCompletionDate() {
+        return completionDate;
     }
 
     public int getId() {

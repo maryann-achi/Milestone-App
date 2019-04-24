@@ -68,10 +68,10 @@
                 <div>
                     <h1>${url}</h1>
                     <%--I will send the project name as part of the url to retrieve it along with the form--%>
-                    <a class ="btn" href="<%=request.getContextPath()%>/add_millestone.jsp?projectTitle=${url}">Add milestone</a>
-                    <a class ="btn" href="<%=request.getContextPath()%>/remove_milestone.jsp?projectTitle=${url}">Remove milestone</a><br>
-                    <a class ="btn" href="<%=request.getContextPath()%>/edit_milestone.jsp?projectTitle=${url}">Edit milestone</a>
-                    <a class ="btn" href="<%=request.getContextPath()%>/RemoveMilestoneServlet?projectTitle=${url}">All milestones</a> <br>
+                    <a class ="btn" href="<%=request.getContextPath()%>/add_millestone.jsp?projectTitle=${url}&userid=<%= request.getParameter("userid") %>">Add milestone</a>
+                    <a class ="btn" href="<%=request.getContextPath()%>/remove_milestone.jsp?projectTitle=${url}&userid=<%= request.getParameter("userid") %>">Remove milestone</a><br>
+                    <a class ="btn" href="<%=request.getContextPath()%>/edit_milestone.jsp?projectTitle=${url}&userid=<%= request.getParameter("userid") %>">Edit milestone</a>
+                    <a class ="btn" href="<%=request.getContextPath()%>/RemoveMilestoneServlet?projectTitle=${url}&userid=<%= request.getParameter("userid") %>">All milestones</a> <br>
 
                     <a href="<%=request.getContextPath()%>/dashboards">Back to projects</a>
                 </div>
