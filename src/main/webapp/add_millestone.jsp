@@ -1,5 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+
+
 <head>
     <meta charset="UTF-8">
     <title>Add Milestone</title>
@@ -25,7 +37,29 @@
         .container-fluid{
             width: 100%;
             padding-left: -15px;
+            font-family: 'Montserrat', sans-serif;
         }
+
+        .mform{
+            width: 100%;
+            font-size: 15px;
+        }
+        .mform a:link, a:visited {
+            background-color: #E25F6D;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .mform a:hover, a:active {
+            background-color: #E25F6D;
+            color: #121212;
+            margin-top: 20px;
+        }
+
 
     </style>
 </head>
@@ -42,31 +76,31 @@
             <div class="col-lg-6">
                 <h1><%= request.getParameter("projectTitle") %>: Add new Milestone</h1>
                 <!--this form adds a new project to the dashboard once completed-->
-                <form name="add_milestone_form" action="AddMilestoneServlet" method="post">
+                <form class="mform" name="add_milestone_form" action="AddMilestoneServlet" method="post">
 
                     <label>
-                        title
+                        Title <br>
                         <input type="text" name="milestoneTitle"/>
                     </label><br>
                     <label>
-                        description
+                        Description <br>
                         <input type="text" name="milestoneDesc"/>
                     </label><br>
 
                     <label>
-                        due date
+                        Due Date <br>
                         <input type="date" name="milestoneDue"/>
                     </label><br>
 
                     <label>
-                        project
+                        Project
                         <!--input for the project, must always be checked-->
                         <input type="radio" name="projTitle" value="<%= request.getParameter("projectTitle") %>" checked> <%= request.getParameter("projectTitle") %> <br>
                     </label><br>
 
                     <!--submit button, triggers confirmation message once clicked and send form answers to post method-->
-                    <input type= "submit" value= "OK"/>
-                    <a href="<%=request.getContextPath()%>/MilestoneMenuServlet?name=<%= request.getParameter("projectTitle") %>">back to project</a>
+                    <input type= "submit" value= "OK"/><br>
+                    <a href="<%=request.getContextPath()%>/MilestoneMenuServlet?name=<%= request.getParameter("projectTitle") %>">Back to project</a>
                 </form>
             </div>
         </div>

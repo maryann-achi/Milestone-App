@@ -55,10 +55,10 @@ public class Project {
         milestones.remove(index);
     }
 
-<<<<<<< HEAD
-    public void removeMilestones(List<Milestone> milestones){
+    public void removeMilestones(List<Milestone> milestones) {
         this.milestones.removeAll(milestones);
-=======
+    }
+
     public void setTitle(String title) {
         this.title = title;
     }
@@ -73,6 +73,5 @@ public class Project {
 
     public void setUserid(int userid) {
         this.userid = userid;
->>>>>>> 95fad108da63d650f3b21c5c1cf910aa4479cca3
     }
 }

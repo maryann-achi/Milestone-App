@@ -18,12 +18,8 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         response.setContentType("text/html");
         PrintWriter out=response.getWriter();
-<<<<<<< HEAD
-        request.getRequestDispatcher("index.jsp").include(request, response);
 
-=======
       //request.getRequestDispatcher("index.jsp").include(request, response);
->>>>>>> 95fad108da63d650f3b21c5c1cf910aa4479cca3
 
         String name = request.getParameter("name");
         String password = request.getParameter("password");
