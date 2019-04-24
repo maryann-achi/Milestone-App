@@ -73,6 +73,8 @@ public class Project {
         return userid;
     }
 
+    public int getId(){ return id; }
+
     public void setUserid(int userid) {
         this.userid = userid;
     }

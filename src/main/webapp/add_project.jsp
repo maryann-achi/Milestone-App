@@ -92,10 +92,11 @@
                         <!--input box for the project title-->
                         <input type="text" name="projectDesc"/>
                     </label><br>
-
+                    <input type="hidden" name="userid" value="<%= request.getParameter("userid") %>"><br>
                     <!--submit button, triggers confirmation message once clicked and send form answers to post method-->
                     <input type= "submit" value= "OK"/><br>
-                    <a href="dashboard.jsp">Back to projects</a>
+                    <%--<a href="dashboard.jsp">Back to projects</a>--%>
+                    <a href="/DashboardServlet?userid=<%= request.getParameter("userid") %>">Back to projects</a>
                 </form>
             </div>
         </div>

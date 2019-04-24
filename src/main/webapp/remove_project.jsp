@@ -69,7 +69,7 @@
             <img src="composition-materials-notebook-760710.jpg" alt="projects for image" class="halfimg">
         </div>
         <div class="col-lg-6">
-            <h1>${dashName}: Remove Project(s)</h1>
+            <h1>${user.getName()} Remove Project(s)</h1>
             <form name="remove_project_form" action="RemoveProjectServlet" method="post">
 
 
@@ -78,10 +78,10 @@
                     <%--<c:out value="${project.title}"/> <br>--%>
                     <hr>
                 </c:forEach>
-
+                <input type="hidden" name="userid" value="<%= request.getParameter("userid") %>"><br>
                 <!--submit button, triggers confirmation message once clicked and send form answers to post method-->
                 <input type= "submit" value= "OK" onclick="successMsg()"/> <br>
-                <a href="${pageContext.request.contextPath}/dashboards">Back to projects</a>
+                <a href="${pageContext.request.contextPath}/dashboards?userid=<%= request.getParameter("userid") %>">Back to projects</a>
             </form>
         </div>
 
