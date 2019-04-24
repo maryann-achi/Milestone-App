@@ -7,29 +7,41 @@ public class User {
     static final Logger LOG = LoggerFactory.getLogger(User.class);
 
     private int id;
-    private final String first;
-    private final String last;
+    private final String name;
     private final String email;
+    private final String password;
 
-    public User(String first, String last, String email) {
-        this.first = first;
-        this.last = last;
+    public User(String name, String email, String password) {
+        this.name = name;
         this.email = email;
+        this.password = password;
     }
 
-    public String getFirst() {
-        return first;
+    public User(int id, String name, String email, String password) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
     }
 
-    public String getLast() {
-        return last;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public int getid() {
-        return id;
+    public String getPassword() {
+        return password;
     }
 }

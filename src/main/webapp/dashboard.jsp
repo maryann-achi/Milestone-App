@@ -49,14 +49,15 @@
                 </div>
                 <div class="col-lg-6">
 
-                    <h1>${dashName}: All Projects</h1>
+                    <h1>${user.getName()}: All Projects</h1>
                     <c:forEach var="project" items="${projects}">
                         <%--<c:out value="${project.title}"/> <br>--%>
                         <a href="<%=request.getContextPath()%>/MilestoneMenuServlet?name=${project.title}">${project.title}</a><br>
                         <hr>
                     </c:forEach>
+                    Id: ${user.id}
 
-                    <a href="add_project.jsp"> add project</a>
+                    <a href="AddProjectServlet?userid=${user.id}"> add project</a>
 
                     <a href="<%=request.getContextPath()%>/RemovalServlet"> remove project</a>
 
