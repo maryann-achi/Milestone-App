@@ -37,9 +37,19 @@
 
             }
 
+            .col-lg-6 a:link, a:visited{
+                color: #121212;
+                text-decoration: none;
+            }
+
+            .col-lg-6 a:hover, a:active {
+                color: #121212;
+                text-decoration: none;
+            }
+
             .add a:link, a:visited {
                 background-color: #E25F6D;
-                color: white;
+                color: #121212;
                 padding: 10px 20px;
                 text-align: center;
                 text-decoration: none;
@@ -88,7 +98,7 @@
 
                     <div class="add">
 
-                    <a href="AddProjectServlet?userid=${user.id}"> add project</a>
+                    <a href="AddProjectServlet?userid=${user.id}"> Add project</a>
 
                     <a href="<%=request.getContextPath()%>/RemovalServlet"> Remove project</a>
 
