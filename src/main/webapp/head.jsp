@@ -101,7 +101,7 @@
 <body>
 <div class="navigate">
     <ul class="first">
-        <li><a href="login.jsp">LOGOUT</a></li>
+        <li><a href="<%=request.getContextPath()%>/LogoutServlet">LOGOUT</a></li>
         <li><a href="dashboard.jsp">HOME</a></li>
     </ul>
 </div>
