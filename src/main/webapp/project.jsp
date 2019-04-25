@@ -74,7 +74,7 @@
                     <a class ="btn" href="<%=request.getContextPath()%>/incomplete_milestone.jsp?projectTitle=${url}&userid=<%= request.getParameter("userid") %>">List incomplete milestone</a>
                     <a class ="btn" href="<%=request.getContextPath()%>/AddMilestoneServlet?projectTitle=${url}&userid=<%= request.getParameter("userid") %>">All milestones</a> <br>
 
-                    <a class ="btn" href="<%=request.getContextPath()%>/dashboards">Back to projects</a>
+                    <a class ="btn" href="<%=request.getContextPath()%>/dashboards?userid=<%= request.getParameter("userid")%>">Back to projects</a>
                 </div>
             </div>
         </div>
