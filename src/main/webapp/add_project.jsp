@@ -84,13 +84,13 @@
                     <label>
                         Project Title <br>
                         <!--input box for the project title-->
-                        <input type="text" name="projectTitle"/>
+                        <input type="text" name="projectTitle" required/>
                     </label><br>
                     <!--label for the project description-->
                     <label>
                         Project Description <br>
                         <!--input box for the project title-->
-                        <input type="text" name="projectDesc"/>
+                        <input type="text" name="projectDesc" />
                     </label><br>
                     <input type="hidden" name="userid" value="<%= request.getParameter("userid") %>"><br>
                     <!--submit button, triggers confirmation message once clicked and send form answers to post method-->

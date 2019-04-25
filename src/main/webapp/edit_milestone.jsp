@@ -70,18 +70,17 @@
 
                 <p>select a milestone to edit</p>
                 <c:forEach var="milestone" items="${theMilestones}">
-                    <input type="radio" name="edit" value="${milestone.id}"> ${milestone.title} <br>
+                    <input type="radio" name="edit" value="${milestone.id}" required> ${milestone.title} <br>
                     <hr>
                 </c:forEach>
                 <br>
                 <p>enter your changes below</p>
                 <label>
                     add actual completion date
-                    <input type="date" name="milestoneComplete"/><br>
+                    <input type="date" name="milestoneComplete" required/><br>
                 </label>
 
                 <label>
-                    project
                     <!--input for the project, must always be checked-->
                     <input type="hidden" name="projTitle" value="<%= request.getParameter("projectTitle") %>"> <br>
                     <input type="hidden" name="userid" value="<%= request.getParameter("userid")%>"><br>
