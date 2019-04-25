@@ -80,16 +80,16 @@
 
                     <label>
                         Title <br>
-                        <input type="text" name="milestoneTitle"/>
+                        <input type="text" name="milestoneTitle" required/>
                     </label><br>
                     <label>
                         Description <br>
-                        <input type="text" name="milestoneDesc"/>
+                        <input type="text" name="milestoneDesc" required/>
                     </label><br>
 
                     <label>
                         Due Date <br>
-                        <input type="date" name="milestoneDue"/>
+                        <input type="date" name="milestoneDue" required/>
                     </label><br>
 
                     <label>
