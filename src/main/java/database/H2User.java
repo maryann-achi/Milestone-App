@@ -1,5 +1,6 @@
 package database;
 
+import model.PasswordHash;
 import model.User;
 import org.h2.tools.Server;
 
@@ -42,7 +43,8 @@ public class H2User {
                 "  id int AUTO_INCREMENT PRIMARY KEY,\n" +
                 "  name VARCHAR(255),\n" +
                 "  email VARCHAR(255),\n" +
-                "  password VARCHAR(255)\n" +
+                "  hashpassword VARCHAR(255),\n" +
+                "  salt VARBINARY(16)\n" +
                 ");";
 
         try (Statement ps = connection.createStatement()) {
@@ -53,11 +55,12 @@ public class H2User {
     }
 
     public void addUser(User user) {
-        final String ADD_PERSON_QUERY = "INSERT INTO users (name, email, password) VALUES (?,?,?)";
+        final String ADD_PERSON_QUERY = "INSERT INTO users (name, email, hashpassword, salt) VALUES (?,?,?,?)";
         try (PreparedStatement ps = connection.prepareStatement(ADD_PERSON_QUERY)) {
             ps.setString(1, user.getName());
             ps.setString(2, user.getEmail());
             ps.setString(3, user.getPassword());
+            ps.setBytes(4, user.getSalt());
             ps.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -68,16 +71,21 @@ public class H2User {
 
 
     public User findUser(String name, String password) {
-        final String LIST_USER_QUERY = "SELECT id, name, email, password  FROM users where name=? and password=?";
+        final String LIST_USER_QUERY = "SELECT id, name, email, hashpassword, salt  FROM users where name=?";
         User out = null;
 
         try (PreparedStatement ps = connection.prepareStatement(LIST_USER_QUERY)) {
             ps.setString(1, name);
-            ps.setString(2, password);
+            //ps.setString(2, password);
 
             ResultSet rs = ps.executeQuery();
-            if(rs.next()){
-                out = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
+            while(rs.next()){
+
+                User user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getBytes(5));
+                if(user.getPassword().equals(PasswordHash.getHashPassword(password, user.getSalt()))){
+                    out = user;
+                    break;
+                }
                 System.out.println("Found user");
             }
         } catch (SQLException e) {

@@ -46,6 +46,7 @@ public class LoginServlet extends HttpServlet {
             System.out.println("user not null");
             //out.println("Welcome to your Milestone dashboard, " + name);
 
+
             request.getRequestDispatcher("dashboard.jsp").forward(request, response);
 //            HttpSession session = request.getSession();
 //            session.setAttribute("name", name);
