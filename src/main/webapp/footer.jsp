@@ -14,11 +14,12 @@
 <style type="text/css">
     .foot{
         background-color: #923F48;
-        height: 50px;
+        height: 30px;
         width: 100%;
         bottom: 0;
         position: fixed;
-        padding: 20px;
+        padding: 10px;
+        margin-top: 70px;
         color: white;
         font-family: 'Montserrat', sans-serif;
     }

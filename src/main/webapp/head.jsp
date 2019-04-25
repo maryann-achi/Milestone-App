@@ -101,15 +101,8 @@
 <body>
 <div class="navigate">
     <ul class="first">
-        <li><a href="#">PROFILE</a>
-            <ul class="dropdown">
-                <li><a href="#">Link 1</a></li>
-                <li><a href="#">Link 2</a></li>
-                <li><a href="#">Link 3</a></li>
-            </ul>
-        </li>
-        <li><a href="#">HELP</a></li>
-        <li><a href="#">HOME</a></li>
+        <li><a href="login.jsp">LOGOUT</a></li>
+        <li><a href="dashboard.jsp">HOME</a></li>
     </ul>
 </div>
 </body>
