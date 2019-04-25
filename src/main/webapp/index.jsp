@@ -60,7 +60,6 @@
 <div id="navigation">
             <ul>
                 <li><a href="login.jsp">Login</a></li>
-                <li> <a href="">Help</a></li>
             </ul>
 </div>
 <div class="topic">
