@@ -25,7 +25,6 @@
             object-fit: cover;
             float: left;
             position: relative;
-            /*padding-right: 5px;*/
         }
 
         .col-lg-6{

@@ -16,22 +16,25 @@
             object-fit: cover;
             float: left;
             position: relative;
-            /*padding-right: 5px;*/
         }
 
         .col-lg-6{
             left: 0;
+            height: 100%;
 
         }
 
         .row{
             width: 100%;
+            height: 200%;
             margin-left: 0;
         }
         .container-fluid{
             width: 100%;
+            height: 500px;
             padding-left: -15px;
             font-family: 'Montserrat', sans-serif;
+            overflow: auto;
         }
 
         .col-lg-6 a:link, a:visited {
