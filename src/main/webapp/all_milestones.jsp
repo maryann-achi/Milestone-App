@@ -1,11 +1,14 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.text.DateFormat" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.text.*,java.util.*" %>
+<%@ page import="model.Project, model.MilestoneBoard, model.Milestone" %>
+<%@ page import="database.H2Milestone, database.H2Project, database.H2User" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add Milestone</title>
+    <title>All Milestone</title>
     <style>
         .halfimg {
             width: 100%;
@@ -67,6 +70,20 @@
                         <p><strong>Description</strong>: ${milestone.description}</p><br>
                         <p><strong>Due Date</strong>: ${milestone.expDueDate}</p><br>
                         <p><strong>Completed Date</strong>: ${milestone.completionDate}</p><br>
+                        <%
+
+                            Object mile = pageContext.getAttribute("milestone");
+                            Milestone tester = (Milestone) mile;
+                            String status = "incomplete";
+                            if(tester.getCompletionDate().before(tester.getExpDueDate())){
+                                status = "complete";
+                            }
+                            else if(tester.getCompletionDate().equals(tester.getExpDueDate()) && tester.getCompletionDate().before(new Date())){
+                                status = "complete";
+                            }
+                            pageContext.setAttribute("status", status);
+                        %>
+                        <p><strong>Status</strong>: ${status}</p><br>
                         <hr>
                     </c:forEach>
 

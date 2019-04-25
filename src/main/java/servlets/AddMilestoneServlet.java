@@ -64,4 +64,35 @@ public class AddMilestoneServlet extends HttpServlet {
         RequestDispatcher requestDispatcher = req.getRequestDispatcher(destination);
         requestDispatcher.forward(req, resp);
     }
+
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html");
+        resp.setStatus(200);
+
+
+
+        String projectName = req.getParameter("projectTitle");
+        int userid = Integer.parseInt(req.getParameter("userid"));
+
+        List<Project> theProjects = h2Project.findProjects(userid);
+
+        int id = 0;
+
+        for(Project proj: theProjects){
+            if(proj.getTitle().equals(projectName)){
+                id = proj.getId();
+
+            }
+        }
+
+        List<Milestone> theMilestones = h2Milestone.findMilestones(id);
+
+        String destination = "all_milestones.jsp";
+        req.setAttribute("projectName",projectName);
+        req.setAttribute("milestones", theMilestones);
+        req.setAttribute("userid", userid);
+
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher(destination);
+        requestDispatcher.forward(req, resp);
+    }
 }

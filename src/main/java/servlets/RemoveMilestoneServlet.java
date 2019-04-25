@@ -29,7 +29,6 @@ public class RemoveMilestoneServlet extends HttpServlet {
         String projectName = req.getParameter("projTitle");
         String[] removeThese = req.getParameterValues("removalM");
         int userid = Integer.parseInt(req.getParameter("userid"));
-        System.out.println("the available miles: "+Arrays.toString(removeThese));
 
         Project temp = null;
         List<Project> theProjects = h2Project.findProjects(userid);
@@ -44,21 +43,6 @@ public class RemoveMilestoneServlet extends HttpServlet {
             int testInt = Integer.parseInt(test);
             h2Milestone.removeMilestone(testInt);
         }
-
-//        List<Milestone> theMilestones = null;
-//        for(Project proj: theProjects){
-//            if(proj.getTitle().equals(projectName)){
-//                id = proj.getId();
-//                theMilestones = h2Milestone.findMilestones(id);
-//                for(Milestone stone: theMilestones) {
-//                    for(String str: removeThese) {
-//                        if (stone.getTitle().equals(str)) {
-//                            h2Milestone.removeMilestones(id);
-//                        }
-//                    }
-//                }
-//            }
-//        }
 
         String destination = "all_milestones.jsp";
         req.setAttribute("projectName",projectName);

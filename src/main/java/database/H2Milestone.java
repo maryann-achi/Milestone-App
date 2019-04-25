@@ -93,6 +93,35 @@ public class H2Milestone {
         }
     }
 
+    public void updateMilestoneCompDate(int id, Date date){
+
+        final String UPDATE_MILESTONE_QUERY = "UPDATE milestones SET "+"completiondate = ?"+" WHERE id = ?";
+        try(PreparedStatement ps = connection.prepareStatement(UPDATE_MILESTONE_QUERY)){
+            ps.setInt(2, id);
+            ps.setDate(1, date);
+            ps.executeUpdate();
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Milestone findMilestone(int id){
+        final String FIND_MILESTONE_QUERY = "SELECT id, projectid, title, description, expDueDate, completionDate FROM milestones WHERE id = ?";
+        Milestone milestone = null;
+        try(PreparedStatement ps = connection.prepareStatement(FIND_MILESTONE_QUERY)){
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                Date expt = new Date(rs.getDate(5).getTime());
+                Date cpt = new Date(rs.getDate(6).getTime());
+                milestone = new Milestone(rs.getInt(1),rs.getString(3), rs.getString(4), expt, cpt, rs.getInt(2));
+            }
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+        return milestone;
+    }
+
     public List<Milestone> findMilestones(){
         final String LIST_MILESTONES_QUERY = "SELECT id, projectid, title, description, expDueDate, completionDate FROM milestones";
         List<Milestone> out = new ArrayList<>();

@@ -12,7 +12,7 @@
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
 <head>
-    <title>${url}</title>
+    <title>${url}: Milestone Menu</title>
     <style>
         .halfimg {
             width: 100%;
@@ -71,9 +71,10 @@
                     <a class ="btn" href="<%=request.getContextPath()%>/add_millestone.jsp?projectTitle=${url}&userid=<%= request.getParameter("userid") %>">Add milestone</a>
                     <a class ="btn" href="<%=request.getContextPath()%>/remove_milestone.jsp?projectTitle=${url}&userid=<%= request.getParameter("userid") %>">Remove milestone</a><br>
                     <a class ="btn" href="<%=request.getContextPath()%>/edit_milestone.jsp?projectTitle=${url}&userid=<%= request.getParameter("userid") %>">Edit milestone</a>
-                    <a class ="btn" href="<%=request.getContextPath()%>/RemoveMilestoneServlet?projectTitle=${url}&userid=<%= request.getParameter("userid") %>">All milestones</a> <br>
+                    <a class ="btn" href="<%=request.getContextPath()%>/incomplete_milestone.jsp?projectTitle=${url}&userid=<%= request.getParameter("userid") %>">List incomplete milestone</a>
+                    <a class ="btn" href="<%=request.getContextPath()%>/AddMilestoneServlet?projectTitle=${url}&userid=<%= request.getParameter("userid") %>">All milestones</a> <br>
 
-                    <a href="<%=request.getContextPath()%>/dashboards">Back to projects</a>
+                    <a class ="btn" href="<%=request.getContextPath()%>/dashboards">Back to projects</a>
                 </div>
             </div>
         </div>
