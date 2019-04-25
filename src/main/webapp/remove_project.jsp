@@ -74,7 +74,7 @@
 
 
                 <c:forEach var="project" items="${projects}">
-                    <input type="checkbox" name="removals" value="${project.title}" required> ${project.title} <br>
+                    <input type="checkbox" name="removals" value="${project.title}"> ${project.title} <br>
                     <%--<c:out value="${project.title}"/> <br>--%>
                     <hr>
                 </c:forEach>

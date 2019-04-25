@@ -70,7 +70,7 @@
 
 
                 <c:forEach var="milestone" items="${theMilestones}">
-                    <input type="checkbox" name="removalM" value="${milestone.id}" required> ${milestone.title} <br>
+                    <input type="checkbox" name="removalM" value="${milestone.id}"> ${milestone.title} <br>
 
                     <hr>
                 </c:forEach>
