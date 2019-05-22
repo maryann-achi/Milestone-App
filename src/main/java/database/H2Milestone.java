@@ -39,6 +39,18 @@ public class H2Milestone {
         }
     }
 
+    public void close() {
+        try {
+            if (connection != null) {
+                connection.close();
+                connection = null;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
     public void createTable(){
         String query = "CREATE TABLE IF NOT EXISTS milestones (\n" +
                 " id int AUTO_INCREMENT PRIMARY KEY,\n" +
